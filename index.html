@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      type="x-icon"
+      href="login_45dp_FFFFFF_FILL0_wght400_GRAD0_opsz48.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp & LogIn Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container" style="margin-top: 10%; margin-bottom: 10%">
+      <!-- Sign Up Form -->
+      <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+          <label for="username"
+            ><span data-tooltip="Username"
+              ><img src="User.png" alt="" width="35px" height="35px" />
+            </span>
+          </label>
+          <input
+            type="text"
+            id="username"
+            required
+            autocomplete="username"
+            placeholder="Enter your username"
+          />
+
+          <label for="email">
+            <span data-tooltip="Email"
+              ><img src="Email.png" alt="" width="35px" height="35px" /> </span
+          ></label>
+          <input
+            type="email"
+            id="email"
+            required
+            autocomplete="email"
+            placeholder="Enter your email"
+          />
+
+          <label for="password"
+            ><span data-tooltip="Password"
+              ><img
+                src="Password.png"
+                alt=""
+                width="35px"
+                height="35px" /></span
+          ></label>
+          <input
+            type="password"
+            id="password"
+            required
+            autocomplete="new-password"
+            placeholder="Enter your password"
+          />
+
+          <p
+            id="toggleSignupPassword"
+            data-tooltip="Click to Show or hide password"
+          >
+            Click to Show Password
+          </p>
+          <button class="link" type="submit">Create account</button>
+          <br />
+          <br />
+          <div id="toggleLogin" class="login-shortcut">
+            Already signed up?
+            <span data-tooltip="Click this if you already have an account"
+              >Log In instead</span
+            >
+          </div>
+        </form>
+        <div id="message" class="message"></div>
+      </div>
+
+      <!-- Log In Form -->
+      <div id="loginForm" class="login-container hidden">
+        <h1>Log in</h1>
+        <form id="loginFormElement">
+          <label for="loginEmail"
+            ><span data-tooltip="Email"
+              ><img src="Email.png" alt="" width="35px" height="35px" /></span
+          ></label>
+          <input
+            type="email"
+            id="loginEmail"
+            required
+            autocomplete="email"
+            placeholder="Enter your email"
+          />
+
+          <label for="loginPassword"
+            ><span data-tooltip="Password"
+              ><img
+                src="Password.png"
+                alt=""
+                width="35px"
+                height="35px" /></span
+          ></label>
+          <input
+            type="password"
+            id="loginPassword"
+            required
+            autocomplete="current-password"
+            placeholder="Enter your password"
+          />
+          <p
+            id="toggleLoginPassword"
+            data-tooltip="Click to show or hide password"
+          >
+            Click to Show Password
+          </p>
+
+          <button class="link" type="submit">Log In</button>
+          <br />
+          <br />
+          <br />
+          <button
+            id="profileButton"
+            class="hidden link"
+            data-tooltip="Click to access your profile"
+          >
+            Profile
+          </button>
+
+          <div id="togglesignin" class="login-shortcut">
+            Not signed up?
+            <span data-tooltip="Click this you don't have an account registered"
+              >Sign up instead</span
+            >
+          </div>
+        </form>
+        <br />
+        <div id="loginMessage" class="message"></div>
+      </div>
+
+      <!-- Admin Controls -->
+      <div id="adminControls" class="admin-controls">
+        <p
+          class="admin-ctrl"
+          id="toggleAdminControls"
+          data-tooltip="Click to open or close Admin section"
+        >
+          Admin Controls
+        </p>
+        <div id="adminPasswordSection" class="hidden">
+          <input
+            type="password"
+            id="adminPasswordInput"
+            placeholder="Enter Admin Password"
+          />
+          <p
+            id="toggleAdminPassword"
+            data-tooltip="Click to Show or hide password"
+          >
+            Click to Show Password
+          </p>
+          <p
+            type="button"
+            class="admin-next"
+            id="submitAdminPassword"
+            data-tooltip="Button to access database"
+          >
+            Next ▶
+          </p>
+        </div>
+      </div>
+
+      <!-- Admin Buttons -->
+      <div id="adminButtons" class="hidden">
+        <button class="link" id="viewDatabase">View Database</button> <br />
+        <br />
+        <button class="link2" id="deleteDatabase">Delete Database</button>
+      </div>
+
+      <br />
+
+      <!-- Database Section -->
+      <div id="databaseSection" class="visible">
+        <h1 class="heading-database">
+          <hr />
+          <p
+            id="closeDatabase"
+            class="close-button"
+            data-tooltip="Click to close"
+          >
+            ✖
+          </p>
+          Database
+          <img class="de" src="657897.png" alt="" width="30px" height="30px" />
+        </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+          <tbody id="databaseBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Alert Boxes -->
+    <div id="alert-box" class="alert-box hidden">
+      <div id="alert-content" class="alert-content">
+        Hi there, this is a JS project and it is not fully dynamic as it stores
+        your information in local storage.
+      </div>
+      <button id="close-alert" class="close-alert">&times;</button>
+    </div>
+
+    <div id="alert-box2" class="alert-box2 hidden">
+      <div id="alert-content2" class="alert-content2">
+        Enter any valid username, Email & password and click on create account,
+        next enter the same Email and password and click on login to find the
+        profile button.
+      </div>
+      <button id="close-alert2" class="close-alert2">&times;</button>
+    </div>
+
+    <div id="alert-box3" class="alert-box3 hidden">
+      <div id="alert-content3" class="alert-content3">
+        Password for admin controls: admin123
+      </div>
+      <button id="close-alert3" class="close-alert3">&times;</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <div id="popupMessage" class="popup-message hidden" style="color: white">
+      <span id="popupText" style="color: white"></span>
+    </div>
+  </body>
+</html>

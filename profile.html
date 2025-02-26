@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="5b24e49fd89287ff1eb5bbc4cf93cb038c3384ef-512x512.webp"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <main>
+        <!-- Banner Upload -->
+        <div class="banner">
+          <img src="" />
+        </div>
+
+        <!-- Avatar Upload -->
+        <div class="pfp">
+          <div class="avatar">
+            <img src="" />
+          </div>
+        </div>
+
+        <br /><br />
+
+        <!-- User Profile Section -->
+        <section class="user-profile">
+          <div class="user-info">
+            <div class="pf-info">
+              <strong
+                style="font-size: 36px; padding: 0; margin-top: 10px"
+                id="profileUsername"
+                data-tooltip="Username"
+              ></strong>
+              <br /><br />
+              <div class="upload" style="display: flex">
+                <strong style="color: gray; margin-left: 20%">
+                  <input
+                    type="file"
+                    id="avatarInput"
+                    style="display: none"
+                    accept="image/*,image/gif" />
+                  <label for="avatarInput" id="avatarLabel" class="file-label">
+                    <span data-tooltip="Upload Avatar"
+                      ><img
+                        src="Avatar.png"
+                        alt=""
+                        width="30px"
+                        height="30px" /></span></label
+                ></strong>
+                <br />
+                <br />
+
+                <strong style="color: gray; margin-left: 40%">
+                  <input
+                    type="file"
+                    id="bannerInput"
+                    style="display: none"
+                    accept="image/*,image/gif" />
+                  <label for="bannerInput" id="bannerLabel" class="file-label"
+                    ><span data-tooltip="Upload Banner"
+                      ><img
+                        src="BannerImg.png"
+                        alt=""
+                        width="30px"
+                        height="30px" /></span></label
+                ></strong>
+              </div>
+              <br />
+            </div>
+            <div class="abtme">
+              <strong style="color: rgb(161, 161, 161)">ABOUT ME</strong
+              ><br /><br />
+              <textarea
+                id="aboutMe"
+                class="text-area"
+                placeholder="type something about yourself ..."
+              ></textarea>
+            </div>
+            <br />
+            <button
+              id="saveChanges"
+              class="link"
+              data-tooltip="Click to Save changes"
+            >
+              Save Changes
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      window.onload = function () {
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+        }, 1500);
+      };
+
+      document
+        .getElementById("bannerInput")
+        .addEventListener("change", function () {
+          var fileName = this.files[0] ? this.files[0].name : "Choose a banner";
+          document.getElementById("bannerLabel").textContent = fileName;
+        });
+
+      document
+        .getElementById("avatarInput")
+        .addEventListener("change", function () {
+          var fileName = this.files[0]
+            ? this.files[0].name
+            : "Choose an avatar";
+          document.getElementById("avatarLabel").textContent = fileName;
+        });
+    </script>
+
+    <!-- Alert Boxes -->
+    <div id="alert-box" class="alert-box hidden">
+      <div id="alert-content" class="alert-content">
+        This is your profile, it will appear every time you log in using the
+        same Email and password. Click on the upload buttons to upload an image
+        for your avatar and banner.
+      </div>
+      <button id="close-alert" class="close-alert">&times;</button>
+    </div>
+
+    <div id="alert-box2" class="alert-box2 hidden">
+      <div id="alert-content2" class="alert-content2">
+        To make sure the image has been successfully uploaded you need to check
+        if an alert shows up, if it does not then try again. Also make sure to
+        use an appropriate file type and image resolution for the best results.
+        | Note : Make sure to click on save changes after updating your About
+        me.
+      </div>
+      <button id="close-alert2" class="close-alert2">&times;</button>
+    </div>
+
+    <script src="profile.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
