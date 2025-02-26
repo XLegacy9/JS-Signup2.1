@@ -257,7 +257,10 @@ input[type="password"]:focus {
     width: 95%;
     padding: 15px;
   }
-
+  .admin-next {
+    transform: translateX(-1px);
+    padding: 5px;
+  }
   h1 {
     font-size: 24px;
   }
@@ -373,13 +376,13 @@ input[type="password"]:focus {
 
 .admin-next {
   margin: 10px;
-  padding: 15px 30px;
+  padding: 5px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  border-radius: 10px;
+  border-radius: 4px;
   display: block;
   border: 0px;
   font-weight: 700;
@@ -394,7 +397,7 @@ input[type="password"]:focus {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 91%;
+  width: 96%;
 }
 .admin-next:hover {
   background-position: right center;
@@ -414,22 +417,22 @@ input[type="password"]:focus {
   color: white;
   font-size: 16px;
   z-index: 1000;
-  opacity: 0; /* Start fully transparent */
-  transition: right 0.5s ease, opacity 0.5s ease; /* Smooth transitions */
+  opacity: 0;
+  transition: right 0.5s ease, opacity 0.5s ease;
 }
 .popup-message.success {
-  background-color: #2caf4ac4; /* Green */
+  background-color: #2caf4ac4;
 }
 .popup-message.error {
-  background-color: #d80e22c5; /* Red */
+  background-color: #d80e22c5;
 }
 .popup-message.visible {
-  right: 20px; /* Slide in to the right */
-  opacity: 1; /* Fully visible */
+  right: 20px;
+  opacity: 1;
 }
 .popup-message.hidden {
-  right: 20px; /* Keep the position fixed */
-  opacity: 0; /* Fade out */
+  right: 20px;
+  opacity: 0;
 }
 
 textarea {
